@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">1.2.0</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_login">LoginActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Untuk saat ini fitur belum tersedia.</string>
+    <string name="title_activity_berita_detail">BeritaDetailActivity</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_tambah_berita">TambahBeritaActivity</string>
+    <string name="title_activity_lap_info_detail">LapInfoDetailActivity</string>
+    <string name="title_activity_tambah_lap_info">TambahLapInfoActivity</string>
+    <string name="title_activity_lap_giat_detail">LapGiatDetailActivity</string>
+    <string name="title_activity_tambah_lap_giat">TambahLapGiatActivity</string>
+    <string name="title_activity_detail_rekan">DetailRekanActivity</string>
+    <string name="title_activity_chat">ChatActivity</string>
+    <string name="title_activity_instruksi_detail">InstruksiDetailActivity</string>
+</resources>

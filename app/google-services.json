@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "674451366873",
+    "firebase_url": "https://propam-kalbar-120.firebaseio.com",
+    "project_id": "propam-kalbar-120",
+    "storage_bucket": "propam-kalbar-120.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:674451366873:android:434aaa99387712ff",
+        "android_client_info": {
+          "package_name": "id.co.dsip.propampoldakalbar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "674451366873-i2oim3vrceqkeds2lbsanm60es25u64n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.co.dsip.propampoldakalbar",
+            "certificate_hash": "14c61df75509dfc296c65047b429e19eb7f73b2a"
+          }
+        },
+        {
+          "client_id": "674451366873-tgg8k2rpag2phnoj4hlhas3oe3bq9tha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDL_mSrb9-dFoKVUi7owdMUJHExJeDUoo8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "674451366873-tgg8k2rpag2phnoj4hlhas3oe3bq9tha.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
