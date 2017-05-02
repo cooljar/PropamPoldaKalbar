@@ -100,4 +100,10 @@ public interface TransactionEndPoint {
             @Query("per-page") String perPage,
             @Query("MstAnggotaPolisiSearch[nama]") String queryNama
     );
+
+    @GET("trn-instruksi")
+    Call<JsonObject> getInstruksi(
+            @Query("page") String page,
+            @Query("per-page") String perPage
+    );
 }

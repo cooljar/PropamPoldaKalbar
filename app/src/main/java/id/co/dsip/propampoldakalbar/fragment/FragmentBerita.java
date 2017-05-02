@@ -176,7 +176,7 @@ public class FragmentBerita extends Fragment {
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
 
-        mAdapter = new BeritaAdapter(getActivity(), mBerita, layoutWidth);
+        mAdapter = new BeritaAdapter(getActivity(), mBerita, layoutWidth, user);
         mAdapter.setClickListener(new OnItemClickListener() {
             @Override
             public void onClick(View view, int position) {

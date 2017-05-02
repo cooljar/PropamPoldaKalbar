@@ -242,7 +242,7 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.nav_instruksi:
                 getSupportActionBar().setTitle("Instruksi");
-                transaction.replace(R.id.container, new FragmentInstruksi());
+                transaction.replace(R.id.container, FragmentInstruksi.newInstance(layoutWidth, layoutHeight, user));
                 break;
             case R.id.nav_change_password:
                 getSupportActionBar().setTitle("Ganti Password");

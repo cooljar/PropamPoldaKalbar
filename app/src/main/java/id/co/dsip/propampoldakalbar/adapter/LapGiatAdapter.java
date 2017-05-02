@@ -1,6 +1,8 @@
 package id.co.dsip.propampoldakalbar.adapter;
 
 import android.content.Context;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,9 +19,13 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 import id.co.dsip.propampoldakalbar.R;
+import id.co.dsip.propampoldakalbar.fragment.ComentFragmentDialog;
+import id.co.dsip.propampoldakalbar.fragment.LikeFragmentDialog;
 import id.co.dsip.propampoldakalbar.helpers.FitXyTransformation;
 import id.co.dsip.propampoldakalbar.helpers.OnItemClickListener;
+import id.co.dsip.propampoldakalbar.model.Coment;
 import id.co.dsip.propampoldakalbar.model.LapGiat;
+import id.co.dsip.propampoldakalbar.model.Like;
 
 /**
  * Created by japra_awok on 21/04/2017.
@@ -79,14 +85,26 @@ public class LapGiatAdapter extends RecyclerView.Adapter<LapGiatAdapter.ViewHold
         holder.ivComment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "Comment...", Toast.LENGTH_SHORT).show();
+                List<Coment> paramComent = lapGiat.trnLapGiatComents;
+                if(paramComent.size() > 0){
+                    AppCompatActivity activity = (AppCompatActivity) context;
+                    FragmentManager fm = activity.getSupportFragmentManager();
+                    ComentFragmentDialog comentFragment = ComentFragmentDialog.newInstance(paramComent);
+                    comentFragment.show(fm, "fragment_komentar");
+                }
             }
         });
 
         holder.ivLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "Like...", Toast.LENGTH_SHORT).show();
+                List<Like> paramLikes = lapGiat.trnLapGiatLikes;
+                if(paramLikes.size() > 0){
+                    AppCompatActivity activity = (AppCompatActivity) context;
+                    FragmentManager fm = activity.getSupportFragmentManager();
+                    LikeFragmentDialog likeFragment = LikeFragmentDialog.newInstance(paramLikes);
+                    likeFragment.show(fm, "fragment_like");
+                }
             }
         });
     }

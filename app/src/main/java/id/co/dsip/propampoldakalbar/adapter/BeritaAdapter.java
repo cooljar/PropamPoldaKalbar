@@ -1,31 +1,31 @@
 package id.co.dsip.propampoldakalbar.adapter;
 
 import android.content.Context;
-import android.graphics.Bitmap;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.kbeanie.multipicker.utils.FileUtils;
 import com.squareup.picasso.Picasso;
-import com.squareup.picasso.RequestCreator;
 
-import java.io.IOException;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 import id.co.dsip.propampoldakalbar.R;
+import id.co.dsip.propampoldakalbar.fragment.ComentFragmentDialog;
+import id.co.dsip.propampoldakalbar.fragment.LikeFragmentDialog;
 import id.co.dsip.propampoldakalbar.helpers.FitXyTransformation;
 import id.co.dsip.propampoldakalbar.helpers.OnItemClickListener;
 import id.co.dsip.propampoldakalbar.model.Berita;
+import id.co.dsip.propampoldakalbar.model.Coment;
+import id.co.dsip.propampoldakalbar.model.Like;
+import id.co.dsip.propampoldakalbar.model.UserSession;
 
 /**
  * Created by japra_awok on 12/04/2017.
@@ -35,6 +35,7 @@ public class BeritaAdapter extends RecyclerView.Adapter<BeritaAdapter.ViewHolder
 
     private Context context;
     private List<Berita> beritaList;
+    private UserSession user;
     private OnItemClickListener clickListener;
     private int layoutWidth;
 
@@ -42,10 +43,11 @@ public class BeritaAdapter extends RecyclerView.Adapter<BeritaAdapter.ViewHolder
         this.clickListener = itemClickListener;
     }
 
-    public BeritaAdapter(Context context, List<Berita> beritaList, int layoutWidth) {
+    public BeritaAdapter(Context context, List<Berita> beritaList, int layoutWidth, UserSession user) {
         this.context = context;
         this.beritaList = beritaList;
         this.layoutWidth = layoutWidth;
+        this.user = user;
     }
 
     @Override
@@ -85,14 +87,26 @@ public class BeritaAdapter extends RecyclerView.Adapter<BeritaAdapter.ViewHolder
         holder.ivComment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "Comment...", Toast.LENGTH_SHORT).show();
+                List<Coment> paramComent = berita.trnBeritaComents;
+                if(paramComent.size() > 0){
+                    AppCompatActivity activity = (AppCompatActivity) context;
+                    FragmentManager fm = activity.getSupportFragmentManager();
+                    ComentFragmentDialog comentFragment = ComentFragmentDialog.newInstance(paramComent);
+                    comentFragment.show(fm, "fragment_komentar");
+                }
             }
         });
 
         holder.ivLike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "Like...", Toast.LENGTH_SHORT).show();
+                List<Like> paramLikes = berita.trnBeritaLikes;
+                if(paramLikes.size() > 0){
+                    AppCompatActivity activity = (AppCompatActivity) context;
+                    FragmentManager fm = activity.getSupportFragmentManager();
+                    LikeFragmentDialog likeFragment = LikeFragmentDialog.newInstance(paramLikes);
+                    likeFragment.show(fm, "fragment_like");
+                }
             }
         });
     }
